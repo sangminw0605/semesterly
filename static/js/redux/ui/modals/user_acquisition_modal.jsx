@@ -123,7 +123,6 @@ class UserAcquisitionModal extends React.Component {
               const link = document.createElement('a');
               link.href = 'https://semester.ly/press';
               link.click();
-
               // this.props.createiCalfromTimetable();
             }}
           >
