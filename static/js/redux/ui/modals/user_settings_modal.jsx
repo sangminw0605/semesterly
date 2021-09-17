@@ -163,6 +163,9 @@ class UserSettingsModal extends React.Component {
     const preferences = !this.props.userInfo.FacebookSignedUp ? null : (
       <div>
         <div className="preference cf">
+	  <div>
+            <h3> This is your favorite number: {this.props.userInfo.favorite_num} </h3>
+	  </div>
           <label className="switch switch-slide" htmlFor="social-courses-input">
             <input
               ref={(c) => { this.shareCourses = c; }} id="social-courses-input"
@@ -174,7 +177,7 @@ class UserSettingsModal extends React.Component {
             <span className="switch-handle" />
           </label>
           <div className="preference-wrapper">
-            <h3>Would you like to find classes with friends?</h3>
+	    <h3> Would you like to find classes with friends?</h3>
             <p className="disclaimer">See which Facebook friends will be your
                             classmates! Only friends in
                             your course will see your name.</p>

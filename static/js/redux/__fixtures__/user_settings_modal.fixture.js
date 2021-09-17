@@ -19,6 +19,7 @@ export const unfilledFixture = {
   acceptTOS: () => null,
   userInfo: {
     data: {
+      favorite_num,
       GoogleLoggedIn: false,
       FacebookSignedUp: true,
       timeAcceptedTos: null,
