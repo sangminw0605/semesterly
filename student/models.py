@@ -25,6 +25,12 @@ from semesterly.settings import get_secret
 
 hashids = Hashids(salt=get_secret('HASHING_SALT'))
 
+class Mock(models.Model):
+
+    fav_color = 'green'
+    fav_food = 'apple'
+    fav_language = 'java'
+
 
 class Student(models.Model):
     """ Database object representing a student.

@@ -15,7 +15,7 @@ GNU General Public License for more details.
 import PropTypes from 'prop-types';
 import React from 'react';
 import Modal from 'boron/FadeModal';
-
+import * as SemesterlyPropTypes from '../../constants/semesterlyPropTypes';
 
 class MockModal extends React.Component {
   componentDidUpdate() {
@@ -25,17 +25,43 @@ class MockModal extends React.Component {
   }
 
   render() {
+    const modalHeader =
+            (<div className="modal-content">
+              <div className="modal-header">
+                <h1>Mock Modal</h1>
+              </div>
+            </div>);
     const modalStyle = {
       width: '100%',
     };
     return (
       <Modal
         ref={(c) => { this.modal = c; }}
+        className="pref-modal max-modal"
         modalStyle={modalStyle}
         onHide={this.props.toggleMockModal}
       >
-        <div>
-          <h1>Mock Modal!</h1>
+        <div id="perf-modal-wrapper">
+          {modalHeader}
+          <hr style={{ marginTop: 0, width: '80%' }} />
+          <div>
+            <p> First name: {this.props.userInfo.userFirstName} </p>
+            <p> Last name: {this.props.userInfo.userLastName} </p>
+            <p> Graduating Year: {this.props.userInfo.class_year} </p>
+            <p> Favorite Color: </p>
+            <p> Favorite Food: </p>
+            <p> Favorite Language:  </p>
+          </div>
+
+          <div className="preference-footer">
+            <button
+              className="btn btn-primary"
+              style={{ marginLeft: 'auto', marginRight: '10%' }}
+              onClick={() => this.modal.hide()}
+            >
+              Save and Close
+            </button>
+          </div>
         </div>
       </Modal>
     );
@@ -43,6 +69,9 @@ class MockModal extends React.Component {
 }
 
 MockModal.propTypes = {
+  userInfo: SemesterlyPropTypes.userInfo.isRequired,
+  toggleConflicts: PropTypes.func.isRequired,
+  withConflicts: PropTypes.bool.isRequired,
   toggleMockModal: PropTypes.func.isRequired,
   isVisible: PropTypes.bool.isRequired,
 };
