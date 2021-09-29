@@ -25,12 +25,6 @@ from semesterly.settings import get_secret
 
 hashids = Hashids(salt=get_secret('HASHING_SALT'))
 
-class Mock(models.Model):
-
-    fav_color = 'green'
-    fav_food = 'apple'
-    fav_language = 'java'
-
 
 class Student(models.Model):
     """ Database object representing a student.
@@ -65,7 +59,7 @@ class Student(models.Model):
     first_name = models.CharField(max_length=255, default='', null=True)
     last_name = models.CharField(max_length=255, default='', null=True)
     disabilities = models.NullBooleanField(null=True, default=False)
-    favorite_num = 10;
+    favorite_num = models.IntegerField(blank=True, null=True);
 
     def __str__(self):
         return "{0}".format(self.jhed)
@@ -103,6 +97,13 @@ class Student(models.Model):
                                  get_secret('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET'), refresh_token,
                                  expires_at,
                                  "https://accounts.google.com/o/oauth2/token", 'my-user-agent/1.0')
+
+class Mock(models.Model):
+
+    student = models.ManyToManyField(Student)
+    fav_color = models.CharField(max_length = 100, null = True)
+    fav_food = models.CharField(max_length = 100, null = True)
+    fav_language = models.CharField(max_length = 100, null = True)
 
 
 class Reaction(models.Model):

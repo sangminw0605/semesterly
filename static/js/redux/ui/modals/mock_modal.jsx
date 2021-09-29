@@ -19,6 +19,7 @@ import * as SemesterlyPropTypes from '../../constants/semesterlyPropTypes';
 
 class MockModal extends React.Component {
   componentDidUpdate() {
+    console.log(this.props.userInfo.fav_color)
     if (this.props.isVisible) {
       this.modal.show();
     }
@@ -48,9 +49,9 @@ class MockModal extends React.Component {
             <p> First name: {this.props.userInfo.userFirstName} </p>
             <p> Last name: {this.props.userInfo.userLastName} </p>
             <p> Graduating Year: {this.props.userInfo.class_year} </p>
-            <p> Favorite Color: </p>
-            <p> Favorite Food: </p>
-            <p> Favorite Language:  </p>
+            <p> Favorite Color: {this.props.userInfo.fav_color} </p>
+            <p> Favorite Food: {this.props.userInfo.fav_food} </p>
+            <p> Favorite Language: {this.props.userInfo.fav_language} </p>
           </div>
 
           <div className="preference-footer">
@@ -69,9 +70,7 @@ class MockModal extends React.Component {
 }
 
 MockModal.propTypes = {
-  userInfo: SemesterlyPropTypes.userInfo.isRequired,
-  toggleConflicts: PropTypes.func.isRequired,
-  withConflicts: PropTypes.bool.isRequired,
+  // userInfo: SemesterlyPropTypes.userInfo.isRequired,
   toggleMockModal: PropTypes.func.isRequired,
   isVisible: PropTypes.bool.isRequired,
 };

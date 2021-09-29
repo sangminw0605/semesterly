@@ -31,8 +31,8 @@ def get_student_dict(school, student, semester):
         context = {'semester': semester, 'school': school, 'student': student}
         user_dict['timetables'] = DisplayTimetableSerializer.from_model(timetables, many=True).data
         user_dict['courses'] = CourseSerializer(courses, context=context, many=True).data
-        # mock = student.mock_set.all()
-        # user_dict['mock'] = MockSerializer(mock, many=True).data
+        mock = student.mock_set.all()
+        user_dict['mock'] = MockSerializer(mock, many=True).data
     return user_dict
 
 
@@ -73,10 +73,6 @@ class StudentSerializer(serializers.ModelSerializer):
     
 class MockSerializer(serializers.ModelSerializer):  
     class Meta:
-        fav_color = serializers.CharField(source='fav_color')
-        fav_food = serializers.CharField(source='fav_food')
-        fav_language = serializers.CharField(source='fav_language')
-
         model = Mock
         fields = (
             'fav_color',
