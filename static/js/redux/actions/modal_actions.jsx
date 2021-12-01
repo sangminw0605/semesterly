@@ -92,6 +92,8 @@ export const togglePreferenceModal = () => ({ type: ActionTypes.TOGGLE_PREFERENC
 
 export const triggerSaveCalendarModal = () => ({ type: ActionTypes.TRIGGER_SAVE_CALENDAR_MODAL });
 
+export const toggleCompareModal = () => ({ type: ActionTypes.TOGGLE_COMPARE_MODAL });
+
 export const toggleSaveCalendarModal = () => ({ type: ActionTypes.TOGGLE_SAVE_CALENDAR_MODAL });
 
 export const openSignUpModal = () => ({ type: ActionTypes.TOGGLE_SIGNUP_MODAL });

@@ -166,6 +166,16 @@ class Calendar extends React.Component {
         Click, drag, and release to create your custom event
       </h4>)
       : null;
+    const addCompareButton = (
+      <div className="cal-btn-wrapper">
+        <button
+          onClick={this.props.toggleCompareModal}
+          className="save-timetable"
+        >
+          <img src="/static/img/star.png" />
+        </button>
+      </div>
+      );
     const addSISButton = this.props.registrarSupported ? (
       <div className="cal-btn-wrapper">
         <button
@@ -342,6 +352,7 @@ class Calendar extends React.Component {
             { pilot }
           </div>
           <div className="fc-right">
+            { addCompareButton }
             { addSISButton }
             { addCustomEventButton }
             { shareButton }
@@ -451,6 +462,7 @@ Calendar.defaultProps = {
 };
 
 Calendar.propTypes = {
+  toggleCompareModal: PropTypes.func.isRequired,
   togglePreferenceModal: PropTypes.func.isRequired,
   triggerSaveCalendarModal: PropTypes.func.isRequired,
   isFetchingShareLink: PropTypes.bool.isRequired,

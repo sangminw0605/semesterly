@@ -30,6 +30,7 @@ import SignupModalContainer from './containers/modals/signup_modal_container';
 import PreferenceModalContainer from './containers/modals/preference_modal_container';
 import TutModalContainer from './containers/modals/tut_modal_container';
 import PeerModalContainer from './containers/modals/peer_modal_container';
+import MockModalContainer from './containers/modals/compare_modal_container';
 import IntegrationModalContainer from './containers/modals/integration_modal_container';
 import SaveCalendarModalContainer from './containers/modals/save_calendar_modal_container';
 import FinalExamsModalContainer from './containers/modals/final_exams_modal_container';
@@ -171,6 +172,7 @@ class Semesterly extends React.Component {
         <PreferenceModalContainer />
         <IntegrationModalContainer />
         <TutModalContainer />
+        <MockModalContainer />
         <PeerModalContainer />
         <SaveCalendarModalContainer />
         <FinalExamsModalContainer />
